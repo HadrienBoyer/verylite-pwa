@@ -1,0 +1,17 @@
+{
+  "name": "verylite-pwa",
+  "description": "Lightweight and easy to install PWA (Progressive Web App) starter pack, framework free using Node and Vanilla JS.",
+  "author": "Hadrien Boyer <hello@hadrien.co>",
+  "license": "MIT",
+  "version": "0.1.0",
+  "main": "server.js",
+  "scripts": {
+    "server": "nodemon server.js",
+    "server-debug": "nodemon --inspect server.js",
+    "chrome-macos": "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --user-data-dir=/tmp/foo --ignore-certificate-errors --unsafely-treat-insecure-origin-as-secure=https://localhost"
+  },
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.20"
+  }
+}
