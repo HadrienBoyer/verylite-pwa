@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sw-cache-example';
+const CACHE_NAME = APP_NAME + 'sw-cache-example';
 const pwaCache = [
   '/',
   '/index.html',
@@ -37,6 +37,8 @@ self.addEventListener('activate', function(event) {
           if (key !== CACHE_NAME) {
             console.log('[ServiceWorker] Removing old cache', key)
             return caches.delete(key)
+          } else {
+            console.log('[ServiceWorker] Creating new cache', key);
           }
         }))
       })
