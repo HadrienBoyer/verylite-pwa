@@ -1,46 +1,65 @@
-const express = require('express')
-const path    = require('path')
-const fs      = require('fs')
-const https   = require('https')
+'use strict';
 
-// Define HTTP/HTTPS ports of the server:
+import 'express';
+import 'readFileSync';
+import 'https';
+
+  plugins.forEach((element) => {
+    //initRequiredPlugins(element)
+	  const statusElem = element;
+    console.log(element);
+  });
+console.log(plugins);
+
+/*foreach (pgin in plugins) {
+  plugins += plugins  + ' ' + pgin.toLowerCase() }
+  initRequiredPlugins(pgin)
+}*/
+
+/**
+ * Define HTTP/HTTPS ports of the server, if not already defined in the config file (.env):
+ */
 const
-  httpPort  = 8501,
-  httpsPort = 8502
+  HTTP_PORT  = process.env.HTTP_PORT  || 6666,
+  HTTPS_PORT = process.env.HTTPS_PORT || 6669
 
 // Get the certs for HTTP(S) connection
 const
-  key = fs.readFileSync('./certs/localhost.key'),
-  cert = fs.readFileSync('./certs/localhost.crt')
+  key  = readFileSync('./certs/localhost.key'),
+  cert = readFileSync('./certs/localhost.crt')
 
 // Create a new server with the given certificate and key pair:
 const
   app = express(),
-  server = https.createServer(
+  server = createServer(
   {
     key: key,
     cert: cert
-  }
-  , app
+  },
+    app
 );
 
+/*
+ *  Redirect to the HTTP version of the page if
+ *  the server is HTTPS not working properly
+ */
 app.use((req, res, next) => {
-  if (!req.secure) {
-    return res.redirect('https://' + req.headers.host + req.url);
-  }
-  next();
+  if (!req.secure) (à) => res.redirect('https://' + req.headers.host + req.url)
+  next()
 })
 
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(rs.static(join(__dirname, 'public')))
 
 app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, 'public/index.html'))
+  res.sendFile(join(__dirname, 'public/index.html'))
 })
 
-app.listen(httpPort, function () {
-  console.log(`Listening on port ${httpPort}!`)
+app.listen(HTTP_PORT, function () {
+  console.log(`Listening on port ${HTTP_PORT}!`)
 })
 
-server.listen(httpsPort, function () {
-  console.log(`Listening on port ${httpsPort}!`)
+server.listen(HTTPS_PORT, function () {
+  console.log(`Listening on port ${HTTPS_PORT}!`)
 })
+
+module.exports = server

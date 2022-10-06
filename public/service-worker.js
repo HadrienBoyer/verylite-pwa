@@ -1,35 +1,42 @@
-const CACHE_NAME = APP_NAME + 'sw-cache-example';
-const pwaCache = [
-  '/',
-  '/index.html',
-  '/js/pwa.webmanifest',
-  '/js/pwa.js',
-  '/js/status.js',
-  '/images/apple-touch.png',
-  '/images/splash-screen.png',
-];
+'use strict';
 
-self.addEventListener('install', function(event) {
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname, 'public/index.html'))
+})
+const procEnv = process.env;
+const
+  CACHE_NAME = procEnv.CACHE_NAME || 'sw-verylite-pwa--cache',
+  pwaCache = [
+    '/',
+    '/index.html',
+    '/js/pwa.webmanifest',
+    '/js/pwa.js',
+    '/js/status.js',
+    '/js/components.js',
+    '/images/apple-touch.png',
+    '/images/favicon.ico'
+  ];
+
+const caches = pwaCache;
+
+self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then(function(cache) {
-        return cache.addAll(pwaCache)
-      })
+      .then((cache) => cache.addAll(pwaCache))
       .then(self.skipWaiting())
   )
 })
 
-self.addEventListener('fetch', function(event) {
+self.addEventListener('fetch', (event) => {
   event.respondWith(
     fetch(event.request)
       .catch(() => caches.open(CACHE_NAME)
-        .then((cache) => {
-          return cache.match(event.request);
-        }))
-  )
-})
+        .then((cache) => cache.match(event.request))
+      )
+  )}
+)
 
-self.addEventListener('activate', function(event) {
+self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys()
       .then((keyList) => {
@@ -43,5 +50,5 @@ self.addEventListener('activate', function(event) {
         }))
       })
       .then(() => self.clients.claim())
-  )
-})
+  )}
+)
