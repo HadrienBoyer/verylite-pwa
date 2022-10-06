@@ -13,7 +13,7 @@ Create a very lightweight PWA ([Progressive Web App](https://en.wikipedia.org/wi
 
 1. Go to the root directory of the project: `cd verylite-pwa`
 2. Install the Node dependencies with `npm install`
-3. Finally, run `npm run server-debug` and launch with your favorite browser this URL: [http://localhost](https://localhost)
+3. Finally, run `npm run server-debug` and launch with your favorite browser this URL: [https://localhost](https://localhost)
 4. If it's working, you can use the command `npm run server` to run the server without debugging.
 5. If not, you can try to open Google Chrome on Mac without the `https` restrictions:
 
