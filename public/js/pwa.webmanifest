@@ -1,6 +1,13 @@
 {
   "name": "VeryLite PWA starter pack",
   "short_name": "VeryLite PWA",
+  "lang": "en-EN",
+  "dir": "ltr",
+  "start_url": "/",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "theme_color": "#f85149",
+  "background_color": "#f85149",
   "description": "Lightweight and easy to install PWA (Progressive Web App) starter pack, framework free using Node and Vanilla JS.",
   "icons": [
     {
@@ -9,8 +16,28 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/",
-  "display": "fullscreen",
-  "theme_color": "#f85149",
-  "background_color": "#f85149"
+  "shortcuts": [
+    {
+      "name": "The name you would like to be displayed for your shortcuts",
+      "url": "The url you would like to open when the user chooses this shortcut. This must be a URL local to your PWA. For example: If my start_url is /, this URL must be something like /shortcut",
+      "description": "A description of the functionality of this shortcut"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/../images/splash-screen.png",
+      "sizes": "2880x1800",
+      "type": "image/png"
+    },
+    {
+      "src": "/../images/splash-screen.png",
+      "sizes": "2880x1800",
+      "type": "image/png"
+    },
+    {
+      "src": "/../images/splash-screen.png",
+      "sizes": "2880x1800",
+      "type": "image/png"
+    }
+  ]
 }
