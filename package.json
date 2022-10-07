@@ -4,6 +4,7 @@
   "author": "Hadrien Boyer <hello@hadrien.co>",
   "license": "MIT",
   "version": "0.1.0",
+  "display": "standalone",
   "main": "server.js",
   "scripts": {
     "server": "nodemon server.js",
@@ -15,16 +16,10 @@
     "nodemon": "^2.0.20"
   },
   "keywords": [
-    "lacrypte",
-    "chat",
-    "crypto-js",
-    "AES",
-    "VanillaJS",
-    "ES6",
-    "secure",
+    "pwa",
     "html5",
-    "encryption",
-    "privacy",
-    "e2ee"
+    "generator",
+    "template",
+    "progressive web app"
   ]
 }
