@@ -3,9 +3,10 @@
   "description": "Lightweight and easy to install PWA (Progressive Web App) starter pack, framework free using Node and Vanilla JS.",
   "author": "Hadrien Boyer <hello@hadrien.co>",
   "license": "MIT",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "display": "standalone",
   "main": "server.js",
+  "preferGlobal": true,
   "scripts": {
     "server": "nodemon server.js",
     "server-debug": "nodemon --inspect server.js",
