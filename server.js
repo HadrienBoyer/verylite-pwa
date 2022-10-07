@@ -1,9 +1,15 @@
 'use strict';
 
-import express from 'express'
-import fs from 'fs'
-import https from 'https'
-import path from 'path'
+// import express from 'express'
+// import fs from 'fs'
+// import https from 'https'
+// import path from 'path'
+
+const
+  express = require('express'),
+  fs      = require('fs'),
+  https   = require('https'),
+  path    = require('path')  // path to httpsPort
 
 /**
  * Define HTTP/HTTPS ports of the server, if not already defined in the config file (.env):
