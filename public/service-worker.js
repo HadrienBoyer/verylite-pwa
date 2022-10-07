@@ -1,7 +1,9 @@
 'use strict';
-import 'process'
 
-document.addEventListener('DOMContentLoaded', init, false);
+//document.addEventListener('DOMContentLoaded', init, false);
+
+const
+  process = require('process');
 
 const
   procEnv = process.env;
