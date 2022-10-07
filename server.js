@@ -15,8 +15,8 @@ const
  * Define HTTP/HTTPS ports of the server, if not already defined in the config file (.env):
  */
 const
-  HTTP_PORT  = process.env.HTTP_PORT  || 6666,
-  HTTPS_PORT = process.env.HTTPS_PORT || 6669
+  HTTP_PORT  = process.env.HTTP_PORT  || 8851,
+  HTTPS_PORT = process.env.HTTPS_PORT || 8852
 
 // Get the certs for HTTP(S) connection
 const
