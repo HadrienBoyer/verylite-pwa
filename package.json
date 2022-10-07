@@ -5,7 +5,7 @@
   "license": "MIT",
   "version": "0.1.1",
   "display": "standalone",
-  "main": "server.js",
+  "main": "server/server.js",
   "preferGlobal": true,
   "scripts": {
     "server": "nodemon server.js",
