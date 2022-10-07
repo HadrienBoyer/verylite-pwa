@@ -7,6 +7,7 @@ const pwaCache = [
   '/js/status.js',
   '/images/apple-touch.png',
   '/images/splash-screen.png',
+  '/images/title.png',
 ];
 
 self.addEventListener('install', function(event) {
