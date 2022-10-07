@@ -2,6 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', init, false);
 
-function init() {
+function init()
+{
     console.log("- Components here ----------------")
 }
