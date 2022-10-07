@@ -1,9 +1,12 @@
 'use strict';
+import 'process';
 
-app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, 'public/index.html'))
-})
-const procEnv = process.env;
+document.addEventListener('DOMContentLoaded', init, false);
+
+
+const
+  procEnv = process.env;
+
 const
   CACHE_NAME = procEnv.CACHE_NAME || 'sw-verylite-pwa--cache',
   pwaCache = [
@@ -17,7 +20,8 @@ const
     '/images/favicon.ico'
   ];
 
-const caches = pwaCache;
+const
+  caches = pwaCache;
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
