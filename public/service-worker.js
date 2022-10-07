@@ -1,48 +1,37 @@
-#!/usr/bin/env node
+const CACHE_NAME = 'sw-verylite-pwa--cache';
+const pwaCache = [
+  '/',
+  '/index.html',
+  '/js/pwa.webmanifest',
+  '/js/pwa.js',
+  '/js/status.js',
+  '/images/apple-touch.png',
+  '/images/splash-screen.png',
+];
 
-//this.process = require('process');
-//import { env } from 'process';
-// TODO: ADD support for environment .env variables
-
-//const
-//  procEnv = process.env //.env.local;
-
-const
-  CACHE_NAME = /*procEnv.CACHE_NAME ||*/ 'sw-verylite-pwa--cache',
-  pwaCache = [
-    '/',
-    '/index.html',
-    '/js/pwa.webmanifest',
-    '/js/pwa.js',
-    '/js/status.js',
-    '/js/components.js',
-    '/images/apple-touch.png',
-    '/images/favicon.ico',
-    '/.env',
-    '/.env.local'
-  ];
-
-const
-  caches = pwaCache;
-
-self.addEventListener('install', (event) => {
+self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then((cache) => cache.addAll(pwaCache))
+      .then(function(cache) {
+        return cache.addAll(pwaCache)
+      })
       .then(self.skipWaiting())
   )
 })
 
-self.addEventListener('fetch', (event) => {
+self.addEventListener('fetch', function(event) {
   event.respondWith(
     fetch(event.request)
-      .catch(() => caches.open(CACHE_NAME)
-        .then((cache) => cache.match(event.request))
-      )
-  )}
-)
+      .catch(() => {
+        return caches.open(CACHE_NAME)
+          .then((cache) => {
+            return cache.match(event.request)
+          })
+      })
+  )
+})
 
-self.addEventListener('activate', (event) => {
+self.addEventListener('activate', function(event) {
   event.waitUntil(
     caches.keys()
       .then((keyList) => {
@@ -50,11 +39,9 @@ self.addEventListener('activate', (event) => {
           if (key !== CACHE_NAME) {
             console.log('[ServiceWorker] Removing old cache', key)
             return caches.delete(key)
-          } else {
-            console.log('[ServiceWorker] Creating new cache', key);
           }
         }))
       })
       .then(() => self.clients.claim())
-  )}
-)
+  )
+})
