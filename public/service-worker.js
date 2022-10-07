@@ -1,8 +1,7 @@
 'use strict';
-import 'process';
+import 'process'
 
 document.addEventListener('DOMContentLoaded', init, false);
-
 
 const
   procEnv = process.env;
