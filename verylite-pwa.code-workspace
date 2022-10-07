@@ -5,6 +5,6 @@
 		}
 	],
 	"settings": {
-		"dotenv.enableAutocloaking": false
+		"dotenv.enableAutocloaking": true
 	}
 }
