@@ -1,7 +1,6 @@
 {
   "name": "verylite-pwa",
   "description": "Lightweight and easy to install PWA (Progressive Web App) starter pack, framework free using Node and Vanilla JS.",
-  "type": "module",
   "author": "Hadrien Boyer <hello@hadrien.co>",
   "license": "MIT",
   "version": "0.1.0",
