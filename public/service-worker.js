@@ -1,15 +1,14 @@
-'use strict';
+#!/usr/bin/env node
 
-//document.addEventListener('DOMContentLoaded', init, false);
+//this.process = require('process');
+//import { env } from 'process';
+// TODO: ADD support for environment .env variables
+
+//const
+//  procEnv = process.env //.env.local;
 
 const
-  process = require('process');
-
-const
-  procEnv = process.env;
-
-const
-  CACHE_NAME = procEnv.CACHE_NAME || 'sw-verylite-pwa--cache',
+  CACHE_NAME = /*procEnv.CACHE_NAME ||*/ 'sw-verylite-pwa--cache',
   pwaCache = [
     '/',
     '/index.html',
@@ -18,7 +17,9 @@ const
     '/js/status.js',
     '/js/components.js',
     '/images/apple-touch.png',
-    '/images/favicon.ico'
+    '/images/favicon.ico',
+    '/.env',
+    '/.env.local'
   ];
 
 const
