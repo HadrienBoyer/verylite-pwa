@@ -4,7 +4,7 @@
   "lang": "en-EN",
   "dir": "ltr",
   "start_url": "/",
-  "display": "fullscreen",
+  "display": "standalone",
   "orientation": "portrait",
   "theme_color": "#f85149",
   "background_color": "#f85149",

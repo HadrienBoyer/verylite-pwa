@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sw-cache-example';
+const CACHE_NAME = 'sw-verylite-pwa--cache';
 const pwaCache = [
   '/',
   '/index.html',
@@ -7,6 +7,7 @@ const pwaCache = [
   '/js/status.js',
   '/images/apple-touch.png',
   '/images/splash-screen.png',
+  '/images/title.png',
 ];
 
 self.addEventListener('install', function(event) {
@@ -22,10 +23,12 @@ self.addEventListener('install', function(event) {
 self.addEventListener('fetch', function(event) {
   event.respondWith(
     fetch(event.request)
-      .catch(() => caches.open(CACHE_NAME)
-        .then((cache) => {
-          return cache.match(event.request);
-        }))
+      .catch(() => {
+        return caches.open(CACHE_NAME)
+          .then((cache) => {
+            return cache.match(event.request)
+          })
+      })
   )
 })
 
