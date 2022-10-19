@@ -2,6 +2,8 @@
 
 <div align="center"><img src="/public/images/title.png" /></div>
 
+[![CodeFactor](https://www.codefactor.io/repository/github/hadrienboyer/verylite-pwa/badge)](https://www.codefactor.io/repository/github/hadrienboyer/verylite-pwa)
+
 ---
 Create a very lightweight PWA ([Progressive Web App](https://en.wikipedia.org/wiki/Progressive_web_app)) that is aim to pass the 100% score in [Google Lighthouse](https://en.wikipedia.org/wiki/Google_Lighthouse).
 
